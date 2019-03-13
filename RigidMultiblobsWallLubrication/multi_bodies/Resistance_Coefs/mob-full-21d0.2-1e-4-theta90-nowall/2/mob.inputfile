@@ -1,0 +1,28 @@
+# Select integrator
+scheme                                   body_mobility
+
+# Select implementation to compute M and M*f
+mobility_blobs_implementation            C++_no_wall
+mobility_vector_prod_implementation      pycuda_no_wall
+
+# Select implementation to compute the blobs-blob interactions
+blob_blob_force_implementation           None
+body_body_force_torque_implementation    python_no_wall
+
+solver_tolerance                         1.0e-5
+rf_delta                                 1.0e-5
+
+# Set fluid viscosity (eta), gravity (g) and blob radius
+eta                                      1.0
+blob_radius                              0.243553056072
+
+debye_length                             2.1
+debye_length_wall                        1.1
+
+# Set output name
+output_name                              data/1/mob
+
+# Load rigid bodies configuration, provide
+# *.vertex and *.clones files
+structure Structures/shell_N_42_Rg_0_8913_Rh_1.vertex data/1/constrained_spheres.clones
+            

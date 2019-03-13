@@ -1,0 +1,5 @@
+num_of_body_types  1
+body_names         ['constrained_spheres']
+body_types         [3]
+num_bodies         3
+num_blobs          1926

@@ -1,0 +1,998 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass revtex4-1
+\begin_preamble
+\usepackage{ae,aecompl}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\V}[1]{\boldsymbol{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\M}[1]{\boldsymbol{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Set}[1]{\mathbb{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\D}[1]{\Delta#1}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\d}[1]{\delta#1}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\norm}[1]{\left\Vert #1\right\Vert }
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\abs}[1]{\left|#1\right|}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\grad}{\M{\nabla}}
+{\boldsymbol{\nabla}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\avv}[1]{\langle#1\rangle}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\av}[1]{\left\langle #1\right\rangle }
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\P}{\mathcal{P}}
+{\mathcal{P}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\ki}{k}
+{k}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\wi}{\omega}
+{\omega}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\slip}{\breve{\V u}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\bu}{\V u}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\bv}{\V v}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\br}{\V r}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\sM}[1]{\M{\mathcal{#1}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Mob}{\sM M}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\J}{\sM J}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\S}{\sM S}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\L}{\sM L}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\N}{\sM N}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\K}{\sM K}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\slipN}{\breve{\N}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Lub}{\sM{\M{\Delta}}_{MB}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\aN}{\widetilde{\N}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\aK}{\widetilde{\K}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\aMob}{\widetilde{\Mob}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\epsN}{\overline{\N}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\slipW}{\breve{\V W}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\rot}{\M{\Psi}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Rot}{\M{\Xi}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\eqd}{\overset{d}{=}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+Outline for a Lubrication Corrected Euler Maruyama Type Scheme
+\end_layout
+
+\begin_layout Author
+Brennan Sprinkle, Courant Institute
+\end_layout
+
+\begin_layout Section
+Generating the Modified Mobility
+\end_layout
+
+\begin_layout Standard
+The lubrication corrected body mobility 
+\begin_inset Formula $\epsN$
+\end_inset
+
+ can be stated as 
+\begin_inset Formula 
+\begin{eqnarray}
+\epsN & = & \N\cdot\left[\M I+\Lub\cdot\N\right]^{-1}\nonumber \\
+ & = & \left[\N^{-1}+\Lub\right]^{-1}\label{eq:LubN}
+\end{eqnarray}
+
+\end_inset
+
+where in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:LubN"
+
+\end_inset
+
+, 
+\begin_inset Formula $\N$
+\end_inset
+
+ is the uncorrected body mobility computed by the standard multiblob method
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "BrownianMultiblobSuspensions"
+
+\end_inset
+
+.
+ 
+\begin_inset Formula $\Delta_{MB}=\M{\zeta}^{sup}-\M{\zeta}_{MB}^{sup}$
+\end_inset
+
+ is the lubrication correction for the resistance matrix where 
+\begin_inset Formula $\M{\zeta}^{sup}$
+\end_inset
+
+ is given analytically as a pairwise approximation to the resistance of
+ nearly touching spheres and 
+\begin_inset Formula $\M{\zeta}_{MB}^{sup}$
+\end_inset
+
+ is it's counterpart, computed using the multiblob method.
+ The idea is to subtract off whatever the multiblob method computes for
+ nearly touching spheres and replace it with an exact analytic formula wherever
+ appropriate.
+\end_layout
+
+\begin_layout Subsection
+Formulation as a Big Linear System
+\end_layout
+
+\begin_layout Standard
+In the absence of fluctuations, computing the lubrication corrected dynamics
+ of a rigid multiblob, 
+\begin_inset Formula $\V U$
+\end_inset
+
+, simply amounts to the application of 
+\begin_inset Formula $\epsN$
+\end_inset
+
+ to some prescribed forces and torques 
+\begin_inset Formula $\V F$
+\end_inset
+
+.
+ That is, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\V U=\epsN\V F=\left[\N^{-1}+\Lub\right]^{-1}\V F.
+\]
+
+\end_inset
+
+We wish to reformulate the computation of 
+\begin_inset Formula $\V U$
+\end_inset
+
+ as the solution of a linear system so that a preconditioned Krylov method
+ can be used to approximately yet efficiently apply 
+\begin_inset Formula $\epsN$
+\end_inset
+
+ to 
+\begin_inset Formula $\V F$
+\end_inset
+
+.
+ While there are certainly a few possible ways to do this, one way I've
+ liked is analgous to the un-lubrication corrected linear system used to
+ compute the action of 
+\begin_inset Formula $\N$
+\end_inset
+
+.
+ That is, solving 
+\begin_inset Formula 
+\begin{equation}
+\begin{pmatrix}\Mob & -\K\\
+\K^{T} & \Lub
+\end{pmatrix}\begin{pmatrix}\V{\lambda}\\
+\V U
+\end{pmatrix}=\begin{pmatrix}\V 0\\
+\V F
+\end{pmatrix},\label{eq:detSys}
+\end{equation}
+
+\end_inset
+
+gives
+\begin_inset Formula 
+\begin{align}
+\V U & =\epsN\V F=\left[\N^{-1}+\Lub\right]^{-1}\V F,\label{eq:UF}\\
+\V{\lambda} & =\Mob^{-1}\K\epsN\V F=\Mob^{-1}\K\left[\N^{-1}+\Lub\right]^{-1}\V F.\label{eq:LamF}
+\end{align}
+
+\end_inset
+
+Equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:detSys"
+
+\end_inset
+
+ has a nonzero 
+\begin_inset Formula $(2,2)$
+\end_inset
+
+ block and therefore will require some more thought about how to efficiently
+ solve.
+ It will also be useful fro us to note that the solution of 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{pmatrix}\Mob & -\K\\
+\K^{T} & \Lub
+\end{pmatrix}\begin{pmatrix}\V{\lambda}_{s}\\
+\V U_{s}
+\end{pmatrix}=\begin{pmatrix}-\slip\\
+\V F_{s}
+\end{pmatrix},\label{eq:slipSys}
+\end{equation}
+
+\end_inset
+
+can be written as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\V U_{s}=\epsN\V F_{s}+\epsN\K^{T}\Mob^{-1}\slip\label{eq:slipSol}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Preconditioning 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:detSys"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Preconditioning"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In principle, the nonzero 
+\begin_inset Formula $(2,2)$
+\end_inset
+
+ block should stabilize the saddle point problem and increase efficiency
+ although this is just from a brief anecdote in talking to Boyce and Charles,
+ I'm not sure of how this comes out.
+ I've seen something called Hermitian and skew-Hermitian splitting (HSS)
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HSS"
+
+\end_inset
+
+, where 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:detSys"
+
+\end_inset
+
+ is solved by splitting the linear system according to
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{pmatrix}\Mob & -\K\\
+\K^{T} & \Lub
+\end{pmatrix}=\begin{pmatrix}\Mob & \V 0\\
+\V 0 & \Lub
+\end{pmatrix}+\begin{pmatrix}\V 0 & -\K\\
+\K^{T} & \V 0
+\end{pmatrix}=\M H+\M S,
+\]
+
+\end_inset
+
+and iterating the solution as 
+\begin_inset Formula 
+\[
+\begin{aligned}\left(\alpha\M I+\M H\right)\V x^{k+1/2} & =\left(\alpha\M I-\M S\right)\V x^{k}+\V b\\
+\left(\alpha\M I+\M S\right)\V x^{k+1} & =\left(\alpha\M I-\M H\right)\V x^{k+1/2}+\V b.
+\end{aligned}
+\]
+
+\end_inset
+
+Some problems here are that the block diagonal system, 
+\begin_inset Formula $\V H$
+\end_inset
+
+, would require the solution of a resistance problem, but since this in
+ an inner solve as a part of an iterative method, I suspect that it won't
+ hurt that bad and a loose tolerance with the block diagonal preconditioner
+ will be well tolerated.
+ However, the block diagonal solve also requires the inversion (or approximate
+ inversion) of 
+\begin_inset Formula $\Lub$
+\end_inset
+
+ which does not have much in the way of general structure to my eye and
+ will not be vary small for many bodies.
+ Regardless of what method is being used, the approximate inversion of 
+\begin_inset Formula $\Lub$
+\end_inset
+
+ seems to me to be the big issue in designing a good preconditioner.
+ 
+\end_layout
+
+\begin_layout Section
+Generating the Brownian Increment
+\end_layout
+
+\begin_layout Standard
+This isn't so different from how we were doing it without the lubrication
+ but there is one little trick that I think is worth mentioning.
+ Using equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:slipSol"
+
+\end_inset
+
+, we can see that taking 
+\begin_inset Formula $\slip=\Mob^{1/2}\V W^{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\V F_{s}=\Lub^{1/2}\V W^{2}$
+\end_inset
+
+ , where 
+\begin_inset Formula $\V W^{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\V W^{2}$
+\end_inset
+
+are uncorrelated i.i.d Gaussian processes, gives 
+\begin_inset Formula 
+\[
+\V U_{s}=\epsN\Lub^{1/2}\V W^{2}+\epsN\K^{T}\Mob^{-1}\Mob^{1/2}\V W^{1}
+\]
+
+\end_inset
+
+so that 
+\begin_inset Formula 
+\[
+\begin{aligned}\av{\V U_{s}\V U_{s}} & =\av{\epsN\Lub^{1/2}\Lub^{1/2}\epsN\V W^{2}\V W^{2}}+\av{\epsN\K^{T}\Mob^{-1}\Mob^{1/2}\Mob^{1/2}\Mob^{-1}\K\epsN\V W^{1}\V W^{1}}+\av{\cdots\V W^{2}\V W^{1}}+\av{\cdots\V W^{1}\V W^{2}}\\
+ & =\epsN\Lub\epsN+\epsN\N^{-1}\epsN=\epsN\left(\Lub+\N^{-1}\right)\epsN=\epsN.
+\end{aligned}
+\]
+
+\end_inset
+
+Using equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:slipSys"
+
+\end_inset
+
+ we can state this as the solution to the linear system 
+\begin_inset Formula 
+\begin{equation}
+\begin{pmatrix}\Mob & -\K\\
+\K^{T} & \Lub
+\end{pmatrix}\begin{pmatrix}\V{\lambda}_{s}\\
+\V U_{s}
+\end{pmatrix}=\begin{pmatrix}-\Mob^{1/2}\V W^{1}\\
+\Lub^{1/2}\V W^{2}
+\end{pmatrix},\label{eq:slipSys2}
+\end{equation}
+
+\end_inset
+
+so that 
+\begin_inset Formula $\av{\V U_{s}\V U_{s}}=\epsN$
+\end_inset
+
+.
+ The main issue here (as with the preconditioning discussed in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Preconditioning"
+
+\end_inset
+
+) is how we will generate the quantity 
+\begin_inset Formula $\V F_{s}=\Lub^{1/2}\V W^{2}$
+\end_inset
+
+.
+ While we will likely still be able to use the Lanczos method, a good idea
+ for a preconditioner for this eludes me.
+ 
+\end_layout
+
+\begin_layout Section
+A Split EM Scheme
+\end_layout
+
+\begin_layout Standard
+A modified version of thee EM-T scheme from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "BrownianMultiblobSuspensions"
+
+\end_inset
+
+is presented here to account for the lubrication correction.
+\begin_inset Float algorithm
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:traction"
+
+\end_inset
+
+ Euler-Maruyama Lubrication (EM-L) Scheme
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "step:TracStep1"
+
+\end_inset
+
+Compute relevant quantities for capturing drift:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Form 
+\begin_inset Formula $\V W^{FT}=\left[\V W_{p}^{FT}\right],$
+\end_inset
+
+ where 
+\begin_inset Formula 
+\[
+\V W_{p}^{FT}=k_{B}T\begin{bmatrix}L_{p}^{-1}\V W_{p}^{f}\\
+\V W_{p}^{\tau}
+\end{bmatrix}
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula $\V W_{p}^{f},\,\V W_{p}^{\tau}$
+\end_inset
+
+ are standard Gaussian random vectors.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "step:ULam"
+
+\end_inset
+
+Solve RFD mobility problem:
+\begin_inset Formula 
+\[
+\begin{bmatrix}\Mob^{n} & -\K^{n}\\
+\left(\K^{T}\right)^{n} & \Lub^{n}
+\end{bmatrix}\begin{bmatrix}\V{\lambda}^{\text{RFD}}\\
+\V U^{\text{RFD}}
+\end{bmatrix}=\begin{bmatrix}0\\
+\V W^{FT}
+\end{bmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\begin{aligned}\V U^{\text{RFD}} & =\epsN\V W^{FT}\\
+\V{\lambda}^{\text{RFD}} & =\Mob^{-1}\K\epsN\V W^{FT}
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "step:URFD"
+
+\end_inset
+
+Randomly displace particles to:
+\begin_inset Formula 
+\[
+\V Q_{p}^{\pm}=\V Q_{p}^{n}+\frac{\delta}{2}\begin{bmatrix}L_{p}\V W_{p}^{f}\\
+\V W_{p}^{\tau}
+\end{bmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "step:DFDS"
+
+\end_inset
+
+Compute the force-drift, 
+\begin_inset Formula $\V D^{F}$
+\end_inset
+
+, and the slip-drift, 
+\begin_inset Formula $\V D^{S}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\V D^{F} & =-\frac{1}{\delta}\left\{ \K^{T}\left(\V Q^{+}\right)-\K^{T}\left(\V Q^{-}\right)\right\} \V{\lambda}^{\text{RFD}}-\frac{1}{\delta}\left\{ \Lub\left(\V Q^{+}\right)-\Lub\left(\V Q^{-}\right)\right\} \V U^{\text{RFD}}\\
+\V D^{S} & =\frac{1}{\delta}\left\{ \Mob\left(\V Q^{+}\right)-\Mob\left(\V Q^{-}\right)\right\} \V{\lambda}^{\text{RFD}}-\frac{1}{\delta}\left\{ \K\left(\V Q^{+}\right)-\K\left(\V Q^{-}\right)\right\} \V U^{\text{RFD}}.
+\end{align*}
+
+\end_inset
+
+Note that different 
+\begin_inset Formula $\delta$
+\end_inset
+
+ may be used for the RFDs on 
+\begin_inset Formula $\K$
+\end_inset
+
+,
+\begin_inset Formula $\Mob$
+\end_inset
+
+, and 
+\begin_inset Formula $\Lub$
+\end_inset
+
+ depending on the relative accuracy with which their action is evaluated.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\begin{aligned}\av{\V D^{F}} & =-k_{B}T\left\{ \partial_{\V Q}\K^{T}\right\} \colon\Mob^{-1}\K\epsN-k_{B}T\left\{ \partial_{\V Q}\Lub\right\} \colon\epsN+\sM O\left(\delta^{2}\right)\\
+\av{\V D^{S}} & =k_{B}T\left\{ \partial_{\V Q}\Mob\right\} \colon\Mob^{-1}\K\epsN-k_{B}T\left\{ \partial_{\V Q}\K\right\} \colon\epsN+\sM O\left(\delta^{2}\right)
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "step:MhalfEM"
+
+\end_inset
+
+Compute 
+\begin_inset Formula $\left(\Mob^{1/2}\right)^{n}\V W^{n}$
+\end_inset
+
+ using a preconditioned Lancoz method or PSE and FIND a nice way to compute
+ 
+\begin_inset Formula $\Lub^{1/2}\V W^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "step:Udef"
+
+\end_inset
+
+Evaluate forces and torques at 
+\begin_inset Formula $\V F^{n}=\V F\left(\V Q^{n},\,t\right)$
+\end_inset
+
+ and solve the mobility problem:
+\begin_inset Formula 
+\[
+\begin{bmatrix}\Mob^{n} & -\K^{n}\\
+\left(\K^{T}\right)^{n} & \Lub^{n}
+\end{bmatrix}\begin{bmatrix}\V{\lambda}^{n}\\
+\V U^{n}
+\end{bmatrix}=\begin{bmatrix}-\V D^{S}-\sqrt{2k_{B}T/\D t}\left(\Mob^{1/2}\right)^{n}\V W^{1}\\
+\V F^{n}+\V D^{F}+\sqrt{2k_{B}T/\D t}\left(\Lub^{n}\right)^{1/2}\V W^{2}
+\end{bmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\begin{aligned}\V U^{n} & =\epsN^{n}\V F^{n}+\epsN^{n}\V D^{F}+\left(\epsN\K^{T}\Mob^{-1}\right)^{n}\V D^{S}+\sqrt{2k_{B}T/\D t}\left[\left(\epsN\K^{T}\Mob^{-1}\right)^{n}\left(\Mob^{1/2}\right)^{n}\V W^{1}+\epsN^{n}\left(\Lub^{n}\right)^{1/2}\V W^{2}\right]\\
+ & \sim\epsN^{n}\V F^{n}+\epsN^{n}\V D^{F}+\left(\epsN\K^{T}\Mob^{-1}\right)^{n}\V D^{S}+\sqrt{2k_{B}T/\D t}\epsN^{1/2}\V W
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\begin{aligned}\av{\V U^{n}} & =\epsN\V F+\av{\epsN\cdot\V D^{F}}+\av{\epsN\K^{T}\Mob^{-1}\cdot\V D^{S}}\\
+ & \approx\epsN\V F-k_{B}T\,\epsN\cdot\left\{ \partial_{\V Q}\K^{T}\right\} \colon\Mob^{-1}\K\epsN-k_{B}T\,\epsN\cdot\left\{ \partial_{\V Q}\Lub\right\} \colon\epsN\\
+ & +k_{B}T\,\epsN\K^{T}\Mob^{-1}\cdot\left\{ \partial_{\V Q}\Mob\right\} \colon\Mob^{-1}\K\epsN-k_{B}T\,\epsN\K^{T}\Mob^{-1}\cdot\left\{ \partial_{\V Q}\K\right\} \colon\epsN\\
+ & =\epsN\V F-k_{B}T\,\epsN\cdot\left\{ \partial_{\V Q}\N^{-1}+\partial_{\V Q}\Lub\right\} \colon\epsN=\epsN\V F-k_{B}T\,\epsN\cdot\left\{ \partial_{\V Q}\epsN^{-1}\right\} \colon\epsN=\epsN\V F-k_{B}T\left\{ \partial_{\V Q}\cdot\epsN\right\} 
+\end{aligned}
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "step:U"
+
+\end_inset
+
+ Update configurations to time 
+\begin_inset Formula $t+\D t$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\V Q^{n+1}=\V Q^{n}+\Delta t\V U^{n}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Big Questions
+\end_layout
+
+\begin_layout Enumerate
+How do we efficiently apply 
+\begin_inset Formula $\Lub$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Enumerate
+How do we efficiently invert (or approximately invert) 
+\begin_inset Formula $\Lub$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Enumerate
+How do we efficiently root 
+\begin_inset Formula $\Lub$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "References"
+options "unsrt"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

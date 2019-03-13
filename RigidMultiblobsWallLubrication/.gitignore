@@ -1,0 +1,22 @@
+# Compiled source #
+###################
+*.o
+*.mod
+*.pyc
+*.so
+
+# tmp files #
+############
+*~
+
+# Makefiles #
+#############
+
+
+# Input files #
+###############
+
+
+# Exclude some folders #
+########################
+

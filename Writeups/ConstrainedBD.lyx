@@ -1,0 +1,1139 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{ae,aecompl}
+%\usepackage[normalbib]{savetrees}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 11
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\V}[1]{\boldsymbol{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\M}[1]{\boldsymbol{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Set}[1]{\mathbb{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\D}[1]{\Delta#1}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\d}[1]{\delta#1}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\norm}[1]{\left\Vert #1\right\Vert }
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\abs}[1]{\left|#1\right|}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\grad}{\M{\nabla}}
+{\boldsymbol{\nabla}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\avv}[1]{\langle#1\rangle}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\av}[1]{\left\langle #1\right\rangle }
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\P}{\mathcal{P}}
+{\mathcal{P}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\ki}{k}
+{k}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\wi}{\omega}
+{\omega}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\bu}{\V u}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\bv}{\V v}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\br}{\V r}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\sM}[1]{\M{\mathcal{#1}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Mob}{\M M}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\J}{\sM J}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\S}{\sM S}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\L}{\sM L}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Mobt}{\widetilde{\Mob}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+Constrained Overdamped Langevin Equations
+\end_layout
+
+\begin_layout Author
+Aleksandar Donev, Courant Institute
+\end_layout
+
+\begin_layout Section
+Constrained Diffusion
+\end_layout
+
+\begin_layout Standard
+We consider here constraining a diffusion process given by an overdamped
+ Langevin equation to a manifold 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ given by the constraint 
+\begin_inset Formula $q(\V X)=0$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ConstrainedStochasticDiffusion"
+
+\end_inset
+
+.
+ Denote with 
+\begin_inset Formula $\V n\left(\V X\right)$
+\end_inset
+
+ the normal unit vector 
+\begin_inset Formula $\V n=\grad q/|\grad q|,$
+\end_inset
+
+ and the curvature 
+\begin_inset Formula $\kappa=\text{div}_{\V X}\V n$
+\end_inset
+
+.
+ This can be generalized to a more complicated manifold given by many constraint
+s, as we mention shortly, but for simplicity let's first consider a single
+ constraint.
+\end_layout
+
+\begin_layout Standard
+We want to have an invariant measure (Gibbs-Boltzmann distribution) that
+ is uniform over the surface of the constraint in the absence of a potential,
+ 
+\begin_inset Formula 
+\[
+P_{\text{eq}}\left(\V X\right)\sim\exp\left[-\beta V(\V X)\right]\norm{\grad q\left(\V X\right)}\delta\left(q\left(\V X\right)\right)=\exp\left[-\beta U(\V X)\right]\delta\left(q\left(\V X\right)\right),
+\]
+
+\end_inset
+
+where the modified potential 
+\begin_inset Formula 
+\[
+U(\V X)=V(\M X)-\left(k_{B}T\right)\ln(\|\grad q\|).
+\]
+
+\end_inset
+
+To be more precise, we express the GB distribution here by a weighting factor
+ 
+\begin_inset Formula $\exp\left[-\beta V(\V X)\right]$
+\end_inset
+
+ with respect to the Hausdorff measure 
+\begin_inset Formula $d\sigma_{\Sigma}$
+\end_inset
+
+ on the constraint surface, 
+\begin_inset Formula $d\mu_{\text{eq}}=\exp\left[-\beta V(\V X)\right]d\sigma_{\Sigma}$
+\end_inset
+
+.
+ The Hausdorff measure contains a metric factor relative to the Lebesque
+ measure 
+\begin_inset Formula $d\V X$
+\end_inset
+
+ in unconstrained coordinates, as given by the co-area formula 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ConstrainedStochasticDiffusion"
+
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+d\sigma_{\Sigma}(\V X)=\delta\left(q(\V X)\right)\norm{\grad q(\V{X)}}\,d\V X.
+\]
+
+\end_inset
+
+Note however that for simple constraints such as spheres or planes, which
+ have constant 
+\begin_inset Formula $\norm{\grad q(\V{X)}}$
+\end_inset
+
+ over 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+, the metric factors are constants and can be absorbed into the normalization
+ factors and 
+\begin_inset Formula $U\equiv V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Note that the choice of the GB distribution 
+\begin_inset Formula $P_{\text{eq}}\left(\V X\right)$
+\end_inset
+
+ above is 
+\emph on
+postulated
+\emph default
+.
+ An equally good choice would have been to choose 
+\begin_inset Formula $d\mu_{\text{eq}}=\exp\left[-\beta V(\V X)\right]\delta\left(q\left(\V X\right)\right)$
+\end_inset
+
+.
+ In the end, this amounts to what one calls the 
+\begin_inset Quotes eld
+\end_inset
+
+original
+\begin_inset Quotes erd
+\end_inset
+
+ potential 
+\begin_inset Formula $V$
+\end_inset
+
+ and what one calls the 
+\begin_inset Quotes eld
+\end_inset
+
+modified
+\begin_inset Quotes erd
+\end_inset
+
+ potential 
+\begin_inset Formula $U$
+\end_inset
+
+.
+ The modified potential 
+\begin_inset Formula $U$
+\end_inset
+
+ contains entropic contributions from the fast vibrations around the constraint
+ that are eliminated in the limit of strong confinement, so it is not a
+ potential but rather a free energy.
+ The exact form of 
+\begin_inset Formula $U$
+\end_inset
+
+ in general depends on the confining potential; for the simple case of interest
+ to us there is no gradient of the entropic contributions along the confining
+ plane so there is no ambiguity about the correct form of the equilibrium
+ distribution.
+\end_layout
+
+\begin_layout Standard
+A general form of constrained Langevin dynamics is
+\color red
+
+\begin_inset Formula 
+\begin{align}
+d\V X & =-\widetilde{\Mob}\,\partial_{\V X}U(\V X)\,dt+\left(2k_{B}T\,\widetilde{\Mob}\right)^{\frac{1}{2}}d\V W+\left(k_{B}T\right)\partial_{\V X}\cdot\widetilde{\Mob},\label{eq:ConstrainedKinetic}\\
+ & =-\widetilde{\Mob}\,\partial_{\V X}V(\V X)\,dt+\left(2k_{B}T\,\widetilde{\Mob}\right)^{\frac{1}{2}}d\V W+\left(k_{B}T\right)\left[\partial_{\V X}\cdot\left(\widetilde{\Mob}\right)+\widetilde{\Mob}\partial_{\V X}\cdot\left(\M P_{2}\right)\right],
+\end{align}
+
+\end_inset
+
+
+\color inherit
+where the mobility 
+\begin_inset Formula $\widetilde{\Mob}=\M P\Mob\M P^{\star}$
+\end_inset
+
+ with 
+\begin_inset Formula $\M M\left(\V X\right)$
+\end_inset
+
+ being the mobility matrix without the constraint, and we have denoted 
+\begin_inset Formula $\widetilde{\Mob}^{\frac{1}{2}}=\M P\Mob^{\frac{1}{2}}$
+\end_inset
+
+.
+ It is important to note here that the potential that appears is 
+\begin_inset Formula $U$
+\end_inset
+
+ and not 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ Here 
+\begin_inset Formula $\M P\left(\V X\right)$
+\end_inset
+
+ is a projection operator onto the constraint, and it is crucial to appreciate
+ that different choices of the projection give 
+\emph on
+different
+\emph default
+ dynamics.
+ Therefore, it is important to find the physically correct projection; as
+ we will see shortly, this is different from the (perhaps expected) 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+ projection
+\begin_inset Formula 
+\begin{equation}
+\M P\neq\M P_{2}=\M I-\frac{\left(\grad q\right)\otimes\left(\grad q\right)}{\norm{\left(\grad q\right)}^{2}}=\M I-\V n\M n^{T}.\label{eq:P_L2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Deterministic Dynamics
+\end_layout
+
+\begin_layout Standard
+Let us assume that the constraint forces 
+\begin_inset Formula $\V F_{c}\parallel\V n$
+\end_inset
+
+, i.e., 
+\begin_inset Formula $\V F_{c}=-\lambda\V n$
+\end_inset
+
+; this relies on some physical assumption about what sort of rigid forces
+ exist in the system, for example, for a polymer chain, it assumes the forces
+ are strictly central, e.g., no bending forces, or, for diffusion on a plane,
+ it assumes the confining force acts in the normal direction.
+ In fact, the very concept of a normal vector is not unique and requires
+ a metric, and it is here that 
+\begin_inset Quotes eld
+\end_inset
+
+work
+\begin_inset Quotes erd
+\end_inset
+
+ or energy enters from physics in the form of a dot product.
+ Then, in the deterministic setting, we have
+\begin_inset Formula 
+\[
+d\V X/dt=-\M M\left(\partial_{\V X}U+\lambda\V n\right),
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\M M\left(\V X\right)$
+\end_inset
+
+ is the symmetric mobility matrix.
+ From the fact that the constraint is preserved by the dynamics we know
+ that
+\begin_inset Formula 
+\[
+\V n\cdot d\V X/dt=-\V n^{T}\M M\left(\partial_{\V X}U+\lambda\V n\right)=0,
+\]
+
+\end_inset
+
+which gives
+\begin_inset Formula 
+\[
+\lambda=-\frac{\V n^{T}\M M\partial_{\V X}U}{\V n^{T}\M M\V n},
+\]
+
+\end_inset
+
+and thus finally
+\begin_inset Formula 
+\begin{equation}
+d\V X/dt=-\left(\M M-\frac{\M M\M n\otimes\left(\M M\M n\right)}{\M n\cdot\left(\M M\M n\right)}\right)\partial_{\V X}U=-\widetilde{\Mob}\partial_{\V X}U.\label{eq:P_M_det}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This lets us identify the projected mobility as
+\begin_inset Formula 
+\begin{equation}
+\widetilde{\Mob}=\M M-\frac{\M M\M n\M n^{T}\M M}{\M n^{T}\M M\M n}=\M P_{\M M}\M M\M P_{\M M}^{T},\label{eq:M_projected}
+\end{equation}
+
+\end_inset
+
+which corresponds to the choice of (non-symmetric!) projection
+\begin_inset Formula 
+\begin{equation}
+\M P=\M P_{\M M}=\M I-\frac{\M M\M n\otimes\M n}{\M n\cdot\left(\M M\M n\right)}=\M I-\frac{\M M\M n\M n^{T}}{\M n^{T}\M M\M n},\label{eq:P_Morse}
+\end{equation}
+
+\end_inset
+
+which is in fact the one proposed in Ref.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ConstrainedBD"
+
+\end_inset
+
+, and also recent work by Ottinger 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ModelReduction_GENERIC"
+
+\end_inset
+
+.
+ Note that it is not important that 
+\begin_inset Formula $\V n$
+\end_inset
+
+ be normalized here, one can use 
+\begin_inset Formula $\V n=\grad q$
+\end_inset
+
+ equally well.
+ Observe that for this special choice of the projection
+\begin_inset Formula 
+\[
+\widetilde{\Mob}=\M P_{\M M}\M M=\M M\M P_{\M M}^{T}=\M P_{\M M}\widetilde{\Mob}=\widetilde{\Mob}\M P_{\M M}^{T}
+\]
+
+\end_inset
+
+so that indeed the choice (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:M_projected"
+
+\end_inset
+
+) is simpler than the more general case and it is probably simpler to assume
+ the specific form than to work with a general 
+\begin_inset Formula $\M P$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Note that the projection (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:P_Morse"
+
+\end_inset
+
+) is an 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+ projection but for an 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+ norm weighted by the SPD matrix 
+\begin_inset Formula $\M M\left(\V X\right)$
+\end_inset
+
+.
+ It does not seem 
+\emph on
+a priori
+\emph default
+ obvious why this is the right norm and the answer may depends on details
+ of the confining potential used to confine the diffusion to the constraint.
+ The special form can also be derived it as a limit of an inertial constrained
+ Langevin equation so it is almost certainly the 
+\begin_inset Quotes eld
+\end_inset
+
+right
+\begin_inset Quotes erd
+\end_inset
+
+ choice.
+ 
+\end_layout
+
+\begin_layout Subsection
+Constrained Overdamped Langevin dynamics
+\end_layout
+
+\begin_layout Standard
+We have concluded above that the constrained overdamped dynamics is (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ConstrainedKinetic"
+
+\end_inset
+
+) with 
+\begin_inset Formula $\widetilde{\Mob}$
+\end_inset
+
+ given by (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:M_projected"
+
+\end_inset
+
+).
+ Here one can write explicitly a non-symmetric 
+\begin_inset Quotes eld
+\end_inset
+
+square root
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\widetilde{\Mob}_{\M M}^{\frac{1}{2}}=\M M^{\frac{1}{2}}-\frac{\M M\M n\otimes\left(\M M^{\frac{1}{2}}\M n\right)}{\M n\cdot\left(\M M\M n\right)},\label{eq:sqrtM_tilde}
+\end{equation}
+
+\end_inset
+
+and it is easy to check that indeed 
+\begin_inset Formula $\widetilde{\Mob}_{\M M}^{\frac{1}{2}}\left(\widetilde{\Mob}_{\M M}^{\frac{1}{2}}\right)^{T}=\widetilde{\Mob}_{\M M}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+This constrained overdamped dynamics can also be written in a split Stratonovich
+-Ito form
+\color red
+
+\begin_inset Formula 
+\begin{equation}
+d\V X=-\widetilde{\Mob}\,\partial_{\V X}V(\V X)\,dt+\left(2k_{B}T\,\right)^{\frac{1}{2}}\widetilde{\Mob}\circ\M P_{2}\M M^{-\frac{1}{2}}d\V W,\label{eq:ConstrainedStrato}
+\end{equation}
+
+\end_inset
+
+
+\color inherit
+where it is now important to note that the gradient of 
+\begin_inset Formula $V$
+\end_inset
+
+ and not 
+\begin_inset Formula $U$
+\end_inset
+
+ appears, which is nice since typically we only know how to compute forces
+ corresponding to 
+\begin_inset Formula $V$
+\end_inset
+
+ but not 
+\begin_inset Formula $U$
+\end_inset
+
+.
+ The simple 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+ projection operator makes a re-appearance and appears important to get
+ the correct effective potential 
+\begin_inset Formula $U$
+\end_inset
+
+.
+ The kinetic form (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ConstrainedStrato"
+
+\end_inset
+
+) can be used to construct a Fixman like scheme but it requires that 
+\begin_inset Formula $\M M$
+\end_inset
+
+ be invertible.
+ 
+\end_layout
+
+\begin_layout Subsection
+Generalization to multiple constraints
+\end_layout
+
+\begin_layout Standard
+Generalization to the case of more than one constraint, 
+\begin_inset Formula $q_{\alpha}(\V X)=0$
+\end_inset
+
+, is relatively straightforward.
+ The resulting constrained mobility matrix is written in Eq.
+ (20) of Ref.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ModelReduction_GENERIC"
+
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+\widetilde{\Mob}=\M M-\M M\M R\M M,\label{eq:M_multconstr}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\M R=\left(\grad\V q\right)\M N^{-1}\left(\grad\V q\right)^{T}$
+\end_inset
+
+, specifically, in index notation,
+\begin_inset Formula 
+\[
+R_{ij}=\left(\partial_{i}q_{\alpha}\right)\left(\M N^{-1}\right)_{\alpha\beta}\left(\partial_{j}q_{\beta}\right),
+\]
+
+\end_inset
+
+where the matrix 
+\begin_inset Formula $\M N=\left(\grad\V q\right)^{T}\M M\left(\grad\V q\right)$
+\end_inset
+
+, specifically,
+\begin_inset Formula 
+\[
+N_{\alpha\beta}=\left(\partial_{i}q_{\alpha}\right)M_{ij}\left(\partial_{j}q_{\beta}\right).
+\]
+
+\end_inset
+
+For the case of a single constraint 
+\begin_inset Formula $\M N\equiv N=\M n^{T}\M M\M n$
+\end_inset
+
+ is a scalar, giving (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:M_projected"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Section
+Numerical Methods
+\end_layout
+
+\begin_layout Standard
+[
+\series bold
+Donev: This section can be simplified to use 
+\series default
+
+\begin_inset Formula $\widetilde{\Mob}$
+\end_inset
+
+ 
+\series bold
+instead of 
+\series default
+
+\begin_inset Formula $\M P\Mob\M P^{\star}$
+\end_inset
+
+
+\series bold
+.
+ It is also not clear if some parts of this were written when we still used
+ 
+\begin_inset Formula $\M P$
+\end_inset
+
+
+\series default
+ 
+\series bold
+to mean the 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+ projection, so everything needs to be checked.
+\series default
+]
+\end_layout
+
+\begin_layout Standard
+We want to develop integrators for (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ConstrainedStrato"
+
+\end_inset
+
+) that have the following desirable properties:
+\end_layout
+
+\begin_layout Enumerate
+Only require computing matrix-vector products with 
+\begin_inset Formula $\M P$
+\end_inset
+
+, 
+\begin_inset Formula $\M M$
+\end_inset
+
+, 
+\begin_inset Formula $\widetilde{\Mob}$
+\end_inset
+
+ and 
+\begin_inset Formula $\widetilde{\Mob}^{\frac{1}{2}}$
+\end_inset
+
+, no derivatives, determinants, etc.
+\end_layout
+
+\begin_layout Enumerate
+Take projected steps to ensure they remain as close as possible to the constrain
+t, rather than taking unconstrained steps as in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ConstrainedStochasticDiffusion"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Only require solving 
+\emph on
+one dimensional
+\emph default
+ nonlinear equations (i.e., line searching) and not systems of nonlinear equations.
+\end_layout
+
+\begin_layout Enumerate
+Use 
+\begin_inset Formula $\partial_{\V X}V(\V X)$
+\end_inset
+
+ rather than 
+\begin_inset Formula $\partial_{\V X}U(\V X)$
+\end_inset
+
+, that is, compute the drift terms coming from 
+\begin_inset Formula $-k_{B}T\ln(\|\grad q\|)$
+\end_inset
+
+ without actually requiring derivatives of 
+\begin_inset Formula $q$
+\end_inset
+
+.
+ Examples include rewriting equations in Strato form as in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ConstrainedStrato"
+
+\end_inset
+
+), and then using Euler-Heun to capture the Strato drift.
+\end_layout
+
+\begin_layout Standard
+Note that in any scheme that steps a little bit off the constraint, if one
+ wants to strictly remain on the constrained a simple line search can be
+ used to go back to the constraint
+\begin_inset Formula 
+\begin{eqnarray}
+\V X^{k+1} & \leftarrow & \V X^{k+1}+\alpha\V n^{k+1}\label{eq:final_proj}\\
+\text{such that }q\left(\V X^{k+1}\right) & = & 0.\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+This should not affect the analysis of the schemes up to leading order in
+ 
+\begin_inset Formula $\D t$
+\end_inset
+
+, but if one actually wants a second-order method (even deterministically),
+ a little more care is required.
+\end_layout
+
+\begin_layout Subsection
+Projected Euler Scheme
+\end_layout
+
+\begin_layout Standard
+In Section X.B of Ref.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ConstrainedBD"
+
+\end_inset
+
+ a modification of a scheme of Ottinger is proposed that reads[
+\series bold
+Is it really 
+\series default
+
+\begin_inset Formula $\partial_{\V X}V$
+\end_inset
+
+
+\series bold
+ in the predictor or 
+\begin_inset Formula $\partial_{\V X}U$
+\end_inset
+
+? (2.357) in Morse suggests it is 
+\begin_inset Formula $\partial_{\V X}U$
+\end_inset
+
+ and I believe this is correct since we know this algorithm is consistent
+ with (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ConstrainedKinetic"
+
+\end_inset
+
+) as it only gives drift 
+\begin_inset Formula $\left(k_{B}T\right)\partial_{\V X}\cdot\widetilde{\Mob}$
+\end_inset
+
+ and not any other ones related to the pseudopotential.
+ Check!
+\series default
+]
+\begin_inset Formula 
+\begin{eqnarray}
+\D{\V X}^{k} & = & -\D t\,\left(\M M\partial_{\V X}V+\left(k_{B}T\right)\partial_{\V X}\cdot\M M\right)^{k}+\left(2k_{B}T\D t\,\M M^{k}\right)^{\frac{1}{2}}\V W^{k}\nonumber \\
+\V X^{k+\frac{1}{2}} & = & \V X^{k}+\D{\V X}^{k}/2\nonumber \\
+\V X^{k+1} & = & \V X^{k}+\D{\V X}^{k}+\lambda^{k}\M M^{k+\frac{1}{2}}\V n^{k+\frac{1}{2}}\D t\label{eq:projected_Euler_Heun}\\
+\text{such that }q\left(\V X^{k+1}\right) & = & 0
+\end{eqnarray}
+
+\end_inset
+
+The projection at the midpoint here is performed via the Lagrange multiplier
+ construction, ensuring that the final point is on the constraint.
+ This scheme steps off the constraint and requires a nonlinear solve, so
+ it won't be considered here as a general scheme.
+\end_layout
+
+\begin_layout Subsection
+Fixman Style Scheme
+\end_layout
+
+\begin_layout Standard
+It is also possible to generate the term by using a Fixman like scheme,[
+\series bold
+This may be restricted to the choice 
+\begin_inset Formula $\M P=\M P_{2}$
+\end_inset
+
+ since it may assume an idempotent (square) projection, and may not be general
+ – check
+\series default
+!] 
+\begin_inset Formula 
+\begin{align}
+\V X^{k+\frac{1}{2}}= & \V X^{k}-\frac{\D t}{2}\Mobt^{k}\partial_{\V X}V(\V X^{k})+\sqrt{\frac{k_{B}T\D t}{2}}\left(\Mobt^{\frac{1}{2}}\right)^{k}\V W^{k}\nonumber \\
+\V X^{k+1}= & \V X^{k}-\D t\Mobt^{k+\frac{1}{2}}\partial_{\V X}V(\V X^{k+\frac{1}{2}})+\sqrt{2k_{B}T\D t}\left(\Mobt\right)^{k+\frac{1}{2}}\M P^{k}\left(\M M^{-\frac{1}{2}}\right)^{k}\V W^{k},\label{eq:Fixman_scheme}
+\end{align}
+
+\end_inset
+
+where the form of the noise in the corrector step will generate the desired
+ drift term.
+ Note that this first order weakly accurate scheme requires application
+ of 
+\begin_inset Formula $\M M^{-\frac{1}{2}}$
+\end_inset
+
+, which in general may be non-trivial.
+ In the case of unconstrained systems, 
+\begin_inset Formula $\M P=\M I$
+\end_inset
+
+, this converts to the Fixman midpoint scheme (in the form presented in
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "BrownianBlobs"
+
+\end_inset
+
+).
+ Note that this scheme is given in Section X.A of Ref.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ConstrainedBD"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+RFD scheme
+\end_layout
+
+\begin_layout Standard
+The following may be a consistent (weakly first-order) scheme for (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ConstrainedKinetic"
+
+\end_inset
+
+) [
+\series bold
+This may be restricted to the choice 
+\begin_inset Formula $\M P=\M P_{2}$
+\end_inset
+
+ since it may assume an idempotent (square) projection, and may not be general
+ – check
+\series default
+!],
+\begin_inset Formula 
+\begin{align}
+\V X^{\star}= & \V X^{k}+\delta{\color{red}\M P^{k}}\widetilde{\V W}^{k}\nonumber \\
+\V X^{k+1}= & \V X^{k}-\D t\left(\Mobt\right)^{k}\partial_{\V X}V(\V X^{k})+\sqrt{2k_{B}T\D t}\left(\Mobt^{\frac{1}{2}}\right)^{k}\V W^{k}\label{eq:RDF_scheme}\\
+ & +\D t\left(\frac{k_{B}T}{\delta}\right)\left[\Mobt^{\star}-\Mobt^{k}\right]\M P^{k}\widetilde{\V W}^{k},\nonumber 
+\end{align}
+
+\end_inset
+
+where 
+\begin_inset Formula $\widetilde{\V W}$
+\end_inset
+
+ is a vector of mean zero variance one independent Gaussian random variables
+ and 
+\begin_inset Formula $\delta$
+\end_inset
+
+ is a small numerical parameter, and we recall that 
+\begin_inset Formula $\Mobt=\M P\M M\M P$
+\end_inset
+
+ and 
+\begin_inset Formula $\Mobt^{\frac{1}{2}}=\M P\M M^{\frac{1}{2}}$
+\end_inset
+
+.
+ The projection in red can be omitted or included without affecting the
+ consistency; it is useful to include it if it is important to keep all
+ values on the constraint, including intermediates.
+ This scheme does require two linear solves (two projections), which can
+ be expensive.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "../References"
+options "unsrt"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

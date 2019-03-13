@@ -1,0 +1,5 @@
+This is the mobility matrices for the right triangle trimer without wall compute by the multiblob code.
+The data files is arranged like this: there are 6 folders 0, 1, ..., 5, containing the results computed by the 1, 12, ..., 2562 blobs. In each folder, there are 21 experiments, each for a choice of epsilon in linspace(0.2, 1e-4, ExpNum) in order. Each experiment has several samples. Specifically, for different blobs number, the sample number is
+blobs number:   1   12  42  162 642 2562
+sample number   1   9   7   5   3   1
+These data files are linearly numbered like shell_N_1_Rg_1_Rh_1.mob.56 in each folder. For example, the first 9 files in folder "1" are for epsilon=0.2, the second 9 files are for epsilon=0.19.

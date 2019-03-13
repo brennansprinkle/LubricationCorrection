@@ -1,0 +1,3 @@
+invalid_configuration_count    = 0
+deterministic_iterations_count = 5
+stochastic_iterations_count    = 0
