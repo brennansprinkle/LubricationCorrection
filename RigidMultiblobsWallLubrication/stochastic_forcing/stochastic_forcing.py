@@ -242,25 +242,29 @@ def stochastic_forcing_lanczos(factor = 1.0,
       diff_norm = np.linalg.norm(noise - noise_old)
 
       # (Optional) Print residual
-      if i > 0 and print_residual is True:
+      if i > 0:
         if i == 1:
-          print 'lanczos =  0 1' 
-        print 'lanczos = ', i, diff_norm / noise_old_norm
+	  if print_residual is True:
+	    print 'lanczos =  0 1' 
+          res_list = [1.0]
+        if print_residual is True:
+	  print 'lanczos = ', i, diff_norm / noise_old_norm
+        res_list.append(diff_norm / noise_old_norm)
 
       # Check convergence and return if difference < tolerance
       if diff_norm / np.maximum(noise_old_norm, np.finfo(float).eps) < tolerance:
         if L_mult is None:
-          return (noise, i)
+          return (noise, res_list)
         else:
-          return (np.reshape(L_mult(noise), dim), i)
+          return (np.reshape(L_mult(noise), dim), res_list)
           
     # Save noise to check convergence in the next iteration
     noise_old = np.copy(noise)
 
   # Return UNCONVERGED noise
   if L_mult is None:
-    return (noise, max_iter)
+    return (noise, res_list)
   else:
-    return (np.reshape(L_mult(noise), dim), max_iter)
+    return (np.reshape(L_mult(noise), dim), res_list)
 
 

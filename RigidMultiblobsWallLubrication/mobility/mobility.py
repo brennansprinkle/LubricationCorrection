@@ -25,9 +25,11 @@ if found_pycuda:
     autoinit_pycuda = False
   if autoinit_pycuda:
     try:
-      import mobility_pycuda
+      #import mobility_pycuda as mobility_pycuda
+      import mobility_pycuda_single as mobility_pycuda
     except ImportError:
-      from mobility import mobility_pycuda
+      #from mobility import mobility_pycuda as mobility_pycuda
+      from mobility import mobility_pycuda_single as mobility_pycuda
 # If numba is installed import mobility_numba
 try: 
   imp.find_module('numba')

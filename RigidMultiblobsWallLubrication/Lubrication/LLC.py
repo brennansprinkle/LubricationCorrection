@@ -23,7 +23,7 @@ class LLC(object):
     self.numberOfCellsZ = None
     self.numberOfCells = None
     self.maxNumberOfParticlesInCell = 100
-    
+    print "NO PERIODIC IMPLEMENTED BUT IS EASY TO DO"
 
   
   def make_particle_linked_lists(self, cutoff, maxDx):

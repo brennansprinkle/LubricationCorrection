@@ -1,0 +1,58 @@
+# Select integrator 
+scheme                                   stochastic_Slip_Trapz_Center
+
+
+# Define implementation to compute the blobs mobility 
+mobility_blobs_implementation            C++
+mobility_vector_prod_implementation      pycuda
+
+# Define implementation to compute the blobs-blob force and pass its arguments
+blob_blob_force_implementation           None
+body_body_force_torque_implementation    python
+
+repulsion_strength                       0.0165677856
+debye_length                             0.0656
+
+# Set time step, number of steps and save frequency
+dt                                       0.008
+n_steps                                  5000000
+n_save                                   1
+initial_step                             0
+solver_tolerance                         1e-3
+
+# Set viscosity, gravity and blob radius
+eta                                      1.0e-3
+g                                        0.012446
+
+
+################################ CHANGE ME EVERY TIME #############
+blob_radius                              0.085941757679200 #0.273171967960588 #
+###################################################################
+
+
+
+kT                                       0.0041419464
+omega		                         62.8
+
+rf_delta                                 1e-2
+
+
+
+periodic_length                          29.41  29.41   0.0
+
+
+# Set interaction with the wall
+repulsion_strength_wall                  0.0165677856
+debye_length_wall                        0.0656
+
+# Seed random number generator
+# seed                                     1
+
+save_velocities                          True
+# Set output name
+############### CHANGE ME ##############
+output_name                              /fhd/bsprinkle/Resolved_Rollers/ST_roll_162
+save_clones                              one_file
+
+structure ../../Structures/shell_N_162_Rh_0.656.vertex ./roll_42.clones
+#structure ../../Structures/shell_N_12_Rh_0.656.vertex ./roll_42.clones

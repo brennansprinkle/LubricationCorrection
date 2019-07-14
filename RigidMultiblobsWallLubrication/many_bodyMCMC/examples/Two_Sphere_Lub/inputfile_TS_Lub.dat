@@ -1,0 +1,36 @@
+# Monte-Carlo simulation of a boomerang colloidal suspension.
+# Note, here we use a pycuda implementation to compute
+# the potential between blobs, it is necessary to have
+# GPU compatible with CUDA to use this input file.
+#
+# Length, time and mass are given in units of microns, seconds and miligrams.
+
+# Set time step, number of steps and save frequency
+n_steps                                  10000000
+n_save                                   10
+initial_step				                     0
+
+# Set gravity*blob_mass (g) and blob radius
+g                                        0.0082838928
+blob_radius                              1.0
+
+# Stochastic parameters
+kT                                       0.0041419464
+
+# Periodic dimensions
+periodic_length                          0	0	0
+
+# Set interaction with the wall
+repulsion_strength_wall                  0
+debye_length_wall	   		 1
+
+# Define implementation to compute the blobs-blob force and pass its arguments
+repulsion_strength	   		               0.0165677856
+debye_length	   			               1.0
+
+# Set output name
+output_name                              run_TS_Lub_soft_debye_0.01a
+save_clones				                       one_file
+
+structure	../../../multi_bodies/Structures/blob.vertex Two_Sphere.clones
+
