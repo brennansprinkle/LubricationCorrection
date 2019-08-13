@@ -6,17 +6,22 @@ a = 0.5;
 [sx, sy, sz] = sphere(20);
 figure(1)
 
+%A = dlmread('/fhd/bsprinkle/Twist_Chain/twist_lasso_check.chain_60.config');
+%A = dlmread('/fhd/bsprinkle/Twist_Chain/twist_helix_check_more_DC.chain_60.config');
+%A = dlmread('/fhd/bsprinkle/Twist_Chain/twist_helix_check.chain_40.config'); %mag = 3.0
+%A = dlmread('/fhd/bsprinkle/Twist_Chain/twist_helix_no_anis_check.chain_60.config');
+%A = dlmread('/fhd/bsprinkle/Twist_Chain/twist_helix_end_anis_check_weak_mag.chain_40.config'); %mag here is actually -3.0
+%A = dlmread('/fhd/bsprinkle/Twist_Chain/twist_helix_end_anis_check_more_bend.chain_40.config'); 
 
-A = dlmread('/fhd/bsprinkle/Twist_Chain/twist_helix_check_more_DC.chain_60.config');
-%A = dlmread('/fhd/bsprinkle/Twist_Chain/twist_helix_check.chain_60.config');
-%A = dlmread('/fhd/bsprinkle/Twist_Chain/twist_check.chain_40.config');
+%A = dlmread('/fhd/bsprinkle/Twist_Chain/twist_helix_end_anis_check.chain_40.config');
+A = dlmread('/fhd/bsprinkle/Twist_Chain/no_twist_helix.chain_40.config');
 n_bods = A(1,1); 
 
 
 A(1:(n_bods+1):end,:) = [];
 N = length(A)/n_bods;
 dt = 20*0.001;
-skip = 4; %4*20;
+skip = 2; %4*20;
 
 Nhist = 100;
 cols = jet(Nhist);
@@ -51,7 +56,7 @@ for i = 1:skip:(length(A)/n_bods)
         end
     
         daspect([1 1 1])
-        view([-75 30]) %view([-90 90]) %view([-140 10])% 
+        view([0 90]) %view([-20 35]) %view([-140 10])% 
         xlim(a*[-30 160])
         ylim(a*[-10 100])
         zlim(a*[0 20])
@@ -84,5 +89,5 @@ for i = 1:skip:(length(A)/n_bods)
     drawnow
     
     hold off
-    %print('-dpng',['chain_pngs/lasso_anis_' num2str(k) '.png'],'-r100')
+    print('-dpng',['chain_pngs/helix_40_no_twist_' num2str(k) '.png'],'-r100')
 end

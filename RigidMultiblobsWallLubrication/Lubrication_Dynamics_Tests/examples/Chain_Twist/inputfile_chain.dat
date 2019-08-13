@@ -25,7 +25,7 @@ solver_tolerance                         1.0e-4
 periodic_length                          0.0	0.0	0.0
 
 # Set parameters for the blob-blob interation
-repulsion_strength                       0 #0.032
+repulsion_strength                       0.016
 debye_length                             0.05
 
 # Set interaction with the wall
@@ -35,8 +35,8 @@ debye_length_wall                        1e-2
 seed					 1
 
 # Set output name
-output_name                              /fhd/bsprinkle/Twist_Chain/twist_helix_check_more_DC #twist_check #
+output_name                              /fhd/bsprinkle/Twist_Chain/twist_helix_test_
 
 # Load rigid bodies configuration, provide
 # *.vertex and *.clones files
-structure ../../Structures/blob.vertex ./chain_60.clones #./chain.clones #
+structure ../../Structures/blob.vertex ./chain_40.clones #./chain.clones #

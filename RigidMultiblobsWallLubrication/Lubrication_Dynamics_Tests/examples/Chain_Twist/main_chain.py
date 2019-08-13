@@ -167,9 +167,10 @@ if __name__ == '__main__':
                                                debye_length = read.debye_length, 
                                                periodic_length = read.periodic_length,
                                                spring_k = 10.0, #3.5,
-                                               spring_l = 2.01*a,
-                                               k_bend = 6.0*(2.01*a)*num_particles*kT,  #1.5 gave a lasso kinda #0.6, #1.1 #0.0317
-                                               k_twist = 6.0*(2.01*a)*num_particles*kT,
+                                               spring_l = 2.1*a,
+                                               k_bend = 8.0*(2.1*a)*num_particles*kT,  #10.0*(2.1*a)*num_particles*kT
+                                               k_twist = 6.0*(2.1*a)*num_particles*kT,
+                                               k_twist_bend = 2.0*(2.1*a)*num_particles*kT,
                                                mag_force = mag_sign*1.0,
                                                time_s = time_s,
                                                a = a)
@@ -180,6 +181,8 @@ if __name__ == '__main__':
       #print force_torque
       
       t0 = time.time()
+      #force_torque = FT_calc(bodies, r_vecs)
+      #reject_wall, reject_jump = LSolv.Update_Bodies(force_torque.flatten())
       reject_wall, reject_jump = LSolv.Update_Bodies_Trap(FT_calc)
       dt1 = time.time() - t0
       print("walltime for time step : %s" %dt1)
