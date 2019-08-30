@@ -155,7 +155,7 @@ if __name__ == '__main__':
       
       mag_sign = 0.0
       if time_s > 1.0:
-	mag_sign = -1.5 # -2.6 for 60 beads for helix
+	mag_sign = -2.6 # -2.6 for 60 beads for helix
       
       FT_calc = partial(multi_bodies_functions.force_torque_calculator_sort_by_bodies, 
                                                g = read.g, 
@@ -167,7 +167,7 @@ if __name__ == '__main__':
                                                periodic_length = read.periodic_length,
                                                spring_k = 10.0, #3.5,
                                                spring_l = 2.1*a,
-                                               k_bend = 4.0*(2.1*a)*num_particles*kT, #10.0*(2.1*a)*num_particles*kT  #6.0 worked and gave a semistable helix rotation
+                                               k_bend = 10.0*(2.1*a)*num_particles*kT, #10.0*(2.1*a)*num_particles*kT  #6.0 worked and gave a semistable helix rotation
                                                k_twist = 2.0*(2.1*a)*num_particles*kT, #2.0*(2.1*a)*num_particles*kT
                                                k_twist_bend = 2.0*(2.1*a)*num_particles*kT, #2.0*(2.1*a)*num_particles*kT
                                                mag_force = mag_sign*1.0,
