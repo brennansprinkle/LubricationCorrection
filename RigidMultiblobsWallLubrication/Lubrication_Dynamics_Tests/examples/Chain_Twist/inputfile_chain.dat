@@ -39,4 +39,4 @@ output_name                              ./data/twist_helix_test_bend_10_fframe_
 
 # Load rigid bodies configuration, provide
 # *.vertex and *.clones files
-structure ../../Structures/blob.vertex ./chain_40.clones #./hairpin_60.clones #
+structure ../../Structures/blob.vertex ./chain_60.clones #./hairpin_60.clones #
