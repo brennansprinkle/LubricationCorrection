@@ -155,7 +155,8 @@ def bodies_external_force(bodies, r_vectors, *args, **kwargs):
       
   #bending
   for k in range(num_parts):
-    k_bend_hetro = k_bend*(2.0-min((1.0*k/(5.0)),1.0))
+    k_bend_hetro = k_bend*(0.6 + 0.4*(1.0*k/(num_parts-1))) #k_bend*(2.0-min((1.0*k/(5.0)),1.0))#
+    #k_bend_hetro = k_bend*(0.6 + 0.4*min((1.0*k/(num_parts/2)),1.0))
     if k == 0:
       Fb = -1.0*k_bend_hetro*(-2*r_vecs[1] + r_vecs[0] + r_vecs[2])
     elif k == 1:
@@ -263,10 +264,10 @@ def bodies_external_torque(bodies, r_vectors, *args, **kwargs):
       
       # Torque
       Tb = M_kph-M_kmh
-    if k != num_parts-1:
+    if k == 0: #if k != num_parts-1:
       r_hat = r_vecs[k+1]-r_vecs[k]
       R_k = bodies[k].orientation.rotation_matrix()
-      ext_FT[k,:] += k_twist*np.cross(r_hat,np.dot(R_k,np.array([1.0,0.0,0.0])))
+      ext_FT[k,:] += (10.0*k_t_bend/ds)*np.cross(r_hat,np.dot(R_k,np.array([1.0,0.0,0.0])))
     ext_FT[k,:] += Tb
     
   
@@ -403,8 +404,8 @@ def blob_blob_force(r, *args, **kwargs):
   C = kwargs.get('mag_force')
   Bratio = 2.94/1.43 # = Bxy/Bz
   Omega = 50
-  #Mom = np.array([1.43, 2.94*np.sin(2*np.pi*Omega*time_s), 2.94*np.cos(2*np.pi*Omega*time_s)])
-  Mom = np.array([1.14, 2.15*np.sin(2*np.pi*Omega*time_s), 2.15*np.cos(2*np.pi*Omega*time_s)])
+  beta = 62.0*np.pi/180.0 #62.0*np.pi/180.0 worked and gave a semi stable helix #45.0*np.pi/180.0 worked for braid
+  Mom = np.array([np.cos(beta), np.sin(beta)*np.sin(2*np.pi*Omega*time_s), np.sin(beta)*np.cos(2*np.pi*Omega*time_s)])
   #Mom = np.array([0.0, 2.2*np.sin(2*np.pi*Omega*time_s), 2.2*np.cos(2*np.pi*Omega*time_s)])
   m0 = np.linalg.norm(Mom)
   m = Mom/m0
@@ -564,6 +565,9 @@ def force_torque_calculator_sort_by_bodies(bodies, r_vectors, *args, **kwargs):
 
   # Compute blob-blob forces (same function for all pair of blobs)
   force_blobs += calc_blob_blob_forces(r_vectors, blob_radius = blob_radius, *args, **kwargs)  
+  
+  Force = bodies_external_force(bodies, r_vectors, blob_radius = blob_radius, *args, **kwargs)
+  force_blobs += Force
 
   # Compute body force-torque forces from blob forces
   offset = 0
@@ -579,8 +583,8 @@ def force_torque_calculator_sort_by_bodies(bodies, r_vectors, *args, **kwargs):
   Torque = bodies_external_torque(bodies, r_vectors, blob_radius = blob_radius, *args, **kwargs)
   force_torque_bodies[1::2,:] += Torque
   
-  Force = bodies_external_force(bodies, r_vectors, blob_radius = blob_radius, *args, **kwargs)
-  force_torque_bodies[0::2,:] += Force
+  #Force = bodies_external_force(bodies, r_vectors, blob_radius = blob_radius, *args, **kwargs)
+  #force_torque_bodies[0::2,:] += Force
 
   # Add body-body forces (same for all pair of bodies)
   force_torque_bodies += calc_body_body_forces_torques(bodies, r_vectors, *args, **kwargs)

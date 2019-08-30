@@ -1,27 +1,28 @@
 clc
 clf
 
+set(0,'defaulttextInterpreter','latex')
+set(0, 'defaultAxesTickLabelInterpreter','latex'); 
+set(0, 'defaultLegendInterpreter','latex');
+set(0, 'defaultLineLineWidth',3);
+set(0,'defaultAxesFontSize',35)
 
 a = 0.5;
 [sx, sy, sz] = sphere(20);
 figure(1)
 
-%A = dlmread('/fhd/bsprinkle/Twist_Chain/twist_lasso_check.chain_60.config');
-%A = dlmread('/fhd/bsprinkle/Twist_Chain/twist_helix_check_more_DC.chain_60.config');
-%A = dlmread('/fhd/bsprinkle/Twist_Chain/twist_helix_check.chain_40.config'); %mag = 3.0
-%A = dlmread('/fhd/bsprinkle/Twist_Chain/twist_helix_no_anis_check.chain_60.config');
-%A = dlmread('/fhd/bsprinkle/Twist_Chain/twist_helix_end_anis_check_weak_mag.chain_40.config'); %mag here is actually -3.0
-%A = dlmread('/fhd/bsprinkle/Twist_Chain/twist_helix_end_anis_check_more_bend.chain_40.config'); 
-
-%A = dlmread('/fhd/bsprinkle/Twist_Chain/twist_helix_end_anis_check.chain_40.config');
-A = dlmread('/fhd/bsprinkle/Twist_Chain/no_twist_helix.chain_40.config');
+% A = dlmread('./data/twist_helix_test_bend_10_fframe.chain_60.config'); %beta = 62 degrees
+% A = dlmread('./data/twist_helix_test_bend_10_fframe_beta_56.chain_60.config');
+% A = dlmread('./data/twist_hairpin_test.hairpin_60.config');
+% A = dlmread('./data/twist_hairpin_test_no_twist.hairpin_60.config');
+A = dlmread('./data/twist_helix_test_bend_10_fframe_beta_62.chain_40.config');
 n_bods = A(1,1); 
 
 
 A(1:(n_bods+1):end,:) = [];
 N = length(A)/n_bods;
 dt = 20*0.001;
-skip = 2; %4*20;
+skip = 4; %4*20;
 
 Nhist = 100;
 cols = jet(Nhist);
@@ -32,7 +33,7 @@ k = 0;
 show_triad = 1;
 show_beads = 1;
 
-for i = 1:skip:(length(A)/n_bods)
+for i = 220:skip:(length(A)/n_bods)
     clf
     i
     k = k+1;
@@ -56,9 +57,11 @@ for i = 1:skip:(length(A)/n_bods)
         end
     
         daspect([1 1 1])
-        view([0 90]) %view([-20 35]) %view([-140 10])% 
+        view([0 90]) %view([80 20]) %view([-140 10])% 
         xlim(a*[-30 160])
-        ylim(a*[-10 100])
+        %xlim(a*[-30 80])
+        ylim(a*[-10 140])
+        %ylim(a*[-10 60])
         zlim(a*[0 20])
         hold all
         
@@ -73,11 +76,11 @@ for i = 1:skip:(length(A)/n_bods)
             tv = tv/norm(tv);
         end
         ev = cross(tv,v);
-        plot3([x(j),x(j)+v(1)],[y(j),y(j)+v(2)],[z(j),z(j)+v(3)],'m-^','linewidth',2','markersize',4)
+        plot3([x(j),x(j)+v(1)],[y(j),y(j)+v(2)],[z(j),z(j)+v(3)],'y-^','linewidth',1','markersize',3)
         hold all
-        plot3([x(j),x(j)+ev(1)],[y(j),y(j)+ev(2)],[z(j),z(j)+ev(3)],'c-^','linewidth',2','markersize',4)
+        plot3([x(j),x(j)+ev(1)],[y(j),y(j)+ev(2)],[z(j),z(j)+ev(3)],'c-^','linewidth',1','markersize',3)
         hold all
-        plot3([x(j),x(j)+tv(1)],[y(j),y(j)+tv(2)],[z(j),z(j)+tv(3)],'g-^','linewidth',2','markersize',4)
+        plot3([x(j),x(j)+tv(1)],[y(j),y(j)+tv(2)],[z(j),z(j)+tv(3)],'g-^','linewidth',1','markersize',3)
         hold all
         end
     end
@@ -89,5 +92,10 @@ for i = 1:skip:(length(A)/n_bods)
     drawnow
     
     hold off
-    print('-dpng',['chain_pngs/helix_40_no_twist_' num2str(k) '.png'],'-r100')
+    %print('-dpng',['chain_pngs/helix_view_90_beta_62_' num2str(k) '.png'],'-r100')
 end
+
+
+% configs_file = './chain_40_eq.clones';
+% dlmwrite(configs_file,length(x),'delimiter','\t','precision',5)
+% dlmwrite(configs_file,A((i-1)*n_bods+1:i*n_bods,:),'-append','delimiter','\t','precision',12)
